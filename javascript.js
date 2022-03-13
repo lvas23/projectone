@@ -9,9 +9,31 @@ search.addEventListener("click",function(event){
     .then(response=>response.json())
     .then(moviedata=>{
         console.log(moviedata)
-        for (let i = 0; i < array.length; i++) {
-            const element = array[i];
-            
-        }
+        results.innerHTML=`
+        <div class="flex mb-4">
+        <div class="w-1/3  h-12">
+            <div class="max-w-sm rounded overflow-hidden shadow-lg">
+                <img src="${moviedata.Poster}" alt="Spiderman">
+                <div class="px-6 py-4">
+                  <div class="font-bold text-xl mb-2">${moviedata.Title}
+                 (${moviedata.Year})
+                  </div>
+                  <p>Ratings:   ${moviedata.imdbRating} </p>
+                  <p class="text-gray-700 text-base">
+                    ${moviedata.Plot}
+                  
+                  </p>
+                </div>
+                
+                
+              </div>
+
+        </div>
+        
+    
+      
+      </div>
+
+        `
     })
 })
